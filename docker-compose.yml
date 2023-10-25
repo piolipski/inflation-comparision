@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+    db:
+        image: mariadb:10.9.6
+        restart: on-failure
+        ports:
+            - '127.0.0.1:3307:3306'
+        networks:
+            backend:
+        environment:
+            MARIADB_ROOT_PASSWORD: root
+            MARIADB_USER: user
+            MARIADB_PASSWORD: password
+            MARIADB_DATABASE: is_project
+
+    backend:
+        build:
+            dockerfile: ./jar.Dockerfile
+        ports:
+            - '127.0.0.1:8080:8080'
+        networks:
+            backend:
+        depends_on:
+            - db
+
+networks:
+    backend:
