@@ -32,9 +32,8 @@ public class ImportDatabaseController {
     InflationRepository inflationRepository;
     MinimalIncomeRepository minimalIncomeRepository;
 
-    // Average Income
     @PostMapping("/averageincome")
-    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> addAverageIncome (@Valid @RequestBody List<AverageIncomeRequest> averageIncomeRequest){
         averageIncomeRequest.forEach(e -> {
             AverageIncome averageIncome = new AverageIncome(e.getYear(),e.getValue(),e.getCurrency(),e.getCountryName());
@@ -44,9 +43,8 @@ public class ImportDatabaseController {
         return ResponseEntity.ok(new MessageResponse("Average Income added successfully!"));
     }
 
-    // Base Retirement Income
     @PostMapping("/baseretirementincome")
-    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> addBaseRetirementIncome (@Valid @RequestBody List<BaseRetirementRequest> baseRetirementIncomeRequest){
         baseRetirementIncomeRequest.forEach(e -> {
             BaseRetirementIncome baseRetirementIncome = new BaseRetirementIncome(e.getYear(), e.getValue(), e.getCurrency(), e.getCountryName());
@@ -56,9 +54,8 @@ public class ImportDatabaseController {
         return ResponseEntity.ok(new MessageResponse("Base retirement income added successfully!"));
     }
 
-    // Gdp
     @PostMapping("/gdp")
-    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> addGdp (@Valid @RequestBody List<GdpRequest> gdpRequest){
         gdpRequest.forEach(e -> {
             Gdp gdp = new Gdp(e.getYear(),e.getValue(),e.getCurrency(),e.getCountryName());
@@ -68,9 +65,8 @@ public class ImportDatabaseController {
         return ResponseEntity.ok(new MessageResponse("GDP added successfully!"));
     }
 
-    // Inflation
     @PostMapping("/inflation")
-    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> addInflation (@Valid @RequestBody List<InflationRequest> inflationRequest){
         inflationRequest.forEach(e -> {
             Inflation inflation = new Inflation(e.getYear(),e.getValue(),e.getCurrency(),e.getCountryName());
@@ -80,9 +76,8 @@ public class ImportDatabaseController {
         return ResponseEntity.ok(new MessageResponse("Inflation added successfully!"));
     }
 
-    // Minimal Income
     @PostMapping("/minimalincome")
-    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> addMinimalIncome (@Valid @RequestBody List<MinimalIncomeRequest> minimalIncomeRequest){
         minimalIncomeRequest.forEach(e -> {
             MinimalIncome minimalIncome = new MinimalIncome(e.getYear(),e.getValue(),e.getCurrency(),e.getCountryName());

@@ -9,10 +9,9 @@ services:
         networks:
             backend:
         environment:
+            MARIADB_DATABASE: database
             MARIADB_ROOT_PASSWORD: root
-            MARIADB_USER: user
-            MARIADB_PASSWORD: password
-            MARIADB_DATABASE: is_project
+            MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: yes
 
     backend:
         build:

@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@AllArgsConstructor // jbc usunac allargsconstructor - do testu
+@AllArgsConstructor
 @RequestMapping("/api/auth")
 public class AuthController {
     AuthenticationManager authenticationManager;
