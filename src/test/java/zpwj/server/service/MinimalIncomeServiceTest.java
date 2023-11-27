@@ -23,7 +23,6 @@ class MinimalIncomeServiceTest {
 
     @Test
     public void testGetAllMinimalIncome() {
-        // Mocking data
         MinimalIncome minimalIncome1 = new MinimalIncome(2000, 700, "PLN", "POLAND");
         MinimalIncome minimalIncome2 = new MinimalIncome(2001, 760, "PLN", "POLAND");
 
@@ -33,7 +32,6 @@ class MinimalIncomeServiceTest {
 
         List<MinimalIncome> result = minimalIncomeService.getAllMinimalIncome();
 
-        // Verify the result
         assertEquals(2, result.size());
     }
 

@@ -23,8 +23,7 @@ class InflationServiceTest {
     private InflationRepository inflationRepository;
 
     @Test
-    public void testGetAllMinimalIncome() {
-        // Mocking data
+    public void testGetAllInflation() {
         Inflation inflation1 = new Inflation(2000, 5.1, "CPI", "POLAND");
         Inflation inflation2 = new Inflation(2001, 6.3, "CPI", "POLAND");
 
@@ -34,12 +33,11 @@ class InflationServiceTest {
 
         List<Inflation> result = inflationService.getAllInflation();
 
-        // Verify the result
         assertEquals(2, result.size());
     }
 
     @Test
-    public void testGetAllMinimalIncomeByCountryName() {
+    public void testGetAllInflationByCountryName() {
         String countryName = "GERMANY";
         Inflation inflation1 = new Inflation(2002, 8, "CPI", "RUSSIA");
         Inflation inflation2 = new Inflation(2005, 7, "CPI", "POLAND");
