@@ -17,4 +17,9 @@ public class InflationService {
     public List<Inflation> getAllInflationByCountryName(String countryName){
         return inflationRepository.findAllByCountryName(countryName);
     }
+
+    public double getInflationScore(double endingCpiLevel , double beginningCpiLevel){
+        return (endingCpiLevel - beginningCpiLevel)/beginningCpiLevel*100;
+    }
+
 }
