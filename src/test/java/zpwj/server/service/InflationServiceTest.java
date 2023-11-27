@@ -1,5 +1,6 @@
 package zpwj.server.service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -52,6 +53,12 @@ class InflationServiceTest {
         List<Inflation> result = inflationService.getAllInflationByCountryName(countryName);
 
         assertEquals(2, result.size());
+    }
+
+    @Test
+    public void testGetInflationScore() {
+        double actualInflationScore = inflationService.getInflationScore(110, 100);
+        Assertions.assertEquals(10.0, actualInflationScore, 0.01);
     }
 
 }
