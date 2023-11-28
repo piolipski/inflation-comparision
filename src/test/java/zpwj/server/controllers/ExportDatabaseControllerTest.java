@@ -65,8 +65,8 @@ class ExportDatabaseControllerTest {
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String content = mvcResult.getResponse().getContentAsString();
-        System.out.println("Response Content: " + content);
+       String content = mvcResult.getResponse().getContentAsString();
+       System.out.println("Response Content: " + content);
     }
 
     @Test
