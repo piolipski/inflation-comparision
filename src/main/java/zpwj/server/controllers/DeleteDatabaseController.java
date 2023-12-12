@@ -29,7 +29,7 @@ public class DeleteDatabaseController {
     InflationRepository inflationRepository;
     MinimalIncomeRepository minimalIncomeRepository;
 
-    @PutMapping("/minimalincome/delete/{id}")
+    @DeleteMapping("/minimalincome/delete/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> deleteMinimalIncome (@Valid @PathVariable("id") Long id  ){
 
@@ -39,7 +39,7 @@ public class DeleteDatabaseController {
 
     };
 
-    @PutMapping("/averageincome/delete/{id}")
+    @DeleteMapping("/averageincome/delete/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> deleteAverageIncome (@Valid @PathVariable("id") Long id  ){
 
@@ -49,7 +49,7 @@ public class DeleteDatabaseController {
 
     };
 
-    @PutMapping("/baseretirementincome/delete/{id}")
+    @DeleteMapping("/baseretirementincome/delete/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> deleteBaseRetirementIncome (@Valid @PathVariable("id") Long id  ){
 
@@ -59,7 +59,7 @@ public class DeleteDatabaseController {
 
     };
 
-    @PutMapping("/gdp/delete/{id}")
+    @DeleteMapping("/gdp/delete/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> deleteGdp(@Valid @PathVariable("id") Long id  ){
 
@@ -69,7 +69,7 @@ public class DeleteDatabaseController {
 
     };
 
-    @PutMapping("/inflation/delete/{id}")
+    @DeleteMapping("/inflation/delete/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> deleteInflation (@Valid @PathVariable("id") Long id  ){
 
