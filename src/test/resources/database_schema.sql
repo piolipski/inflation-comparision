@@ -139,7 +139,7 @@ CREATE TABLE `user_roles` (
 --
 
 INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
-(1, 1);
+(1, 2);
 
 --
 -- Indeksy dla zrzutów tabel
