@@ -19,4 +19,25 @@ public class MinimalIncomeService {
     public List<MinimalIncome> getAllMinimalIncomeByCountryName(String countryName) {
         return minimalIncomeRepository.findAllByCountryName(countryName);
     }
+
+    public MinimalIncome updateMinimalIncome(Long id, MinimalIncome updatedIncome) {
+        MinimalIncome existingIncome = minimalIncomeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("MinimalIncome not found with id: " + id));
+
+        existingIncome.setYear(updatedIncome.getYear());
+        existingIncome.setValue(updatedIncome.getValue());
+        existingIncome.setCurrency(updatedIncome.getCurrency());
+        existingIncome.setCountryName(updatedIncome.getCountryName());
+
+        return minimalIncomeRepository.save(existingIncome);
+    }
+
+    public void deleteMinimalIncomeById(Long id) {
+        MinimalIncome existingIncome = minimalIncomeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("MinimalIncome not found with id: " + id));
+
+        minimalIncomeRepository.delete(existingIncome);
+    }
+
+
 }

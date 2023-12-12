@@ -50,7 +50,6 @@ public class AverageIncomeServiceTest {
 
         when(averageIncomeRepository.findAllByCountryName(countryName)).thenReturn(polishIncomes);
 
-
         List<AverageIncome> result = averageIncomeService.getAllAverageIncomeByCountryName(countryName);
 
         Assertions.assertEquals(2, result.size());
