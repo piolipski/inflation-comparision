@@ -60,7 +60,7 @@ class TestControllerTest {
 
     @Test
     public void testUserEndpoint() throws Exception {
-        Role roleUser = new Role(ERole.ROLE_USER);
+        Role roleUser = new Role(null, ERole.ROLE_USER);
         roleUser.setName(ERole.ROLE_USER);
         roleRepository.save(roleUser);
 
@@ -87,18 +87,7 @@ class TestControllerTest {
 
     @Test
     public void testAdminEndpoint() throws  Exception {
-        Role roleAdmin = new Role(ERole.ROLE_ADMIN);
-        roleAdmin.setName(ERole.ROLE_ADMIN);
-        roleRepository.save(roleAdmin);
-
-        HashSet<Role> adminRoles = new HashSet<>();
-        adminRoles.add(roleAdmin);
-
-        User user = new User("admin", passwordEncoder.encode("admin"));
-        user.setRoles(adminRoles);
-        userRepository.save(user);
-
-        String token = "Bearer " + obtainAccessToken("admin", "admin");
+        String token = "Bearer " + obtainAccessToken("admin", "admin123");
 
         MvcResult result = mvc.perform(MockMvcRequestBuilders
                         .get("/api/test/admin")

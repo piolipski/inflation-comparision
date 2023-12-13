@@ -15,6 +15,7 @@ import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.MountableFile;
+import zpwj.server.repository.AverageIncomeRepository;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,6 +34,9 @@ class ExportDatabaseControllerTest {
     @Autowired
     MockMvc mvc;
 
+    @Autowired
+    AverageIncomeRepository averageIncomeRepository;
+
     @Container
     static MySQLContainer<?> mySQLContainer = new MySQLContainer<>("mysql:8.2.0")
             .withDatabaseName("database")
@@ -42,19 +46,12 @@ class ExportDatabaseControllerTest {
         registry.add("spring.datasource.url",mySQLContainer::getJdbcUrl);
         registry.add("spring.datasource.username",mySQLContainer::getUsername);
         registry.add("spring.datasource.password",mySQLContainer::getPassword);
+        registry.add("spring.jpa.hibernate.ddl-auto", () -> "none");
     }
 
     @BeforeAll
-    static void setupDatabase() throws IOException {
-        Path path = Paths.get("src/test/resources/database.sql");
-        String content = Files.lines(path).collect(Collectors.joining("\n"));
-
-        try (PrintWriter out = new PrintWriter("target/test-classes/database.sql")) {
-            out.println(content);
-        }
-
-        MountableFile mountableFile = MountableFile.forClasspathResource("database.sql");
-        mySQLContainer.withCopyFileToContainer(mountableFile, "/docker-entrypoint-initdb.d/database.sql");
+    static void setupDatabase() {
+        mySQLContainer.start();
     }
 
     @Test

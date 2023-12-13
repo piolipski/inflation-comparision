@@ -82,10 +82,6 @@ class AuthControllerTest {
 
     @Test
     public void testSignUpEndpoint() throws Exception {
-        Role roleUser = new Role(null, ERole.ROLE_USER);
-        roleUser.setName(ERole.ROLE_USER);
-        roleRepository.save(roleUser);
-
         SignupRequest signUpRequest = new SignupRequest();
         signUpRequest.setUsername("testUser");
         signUpRequest.setPassword("testPassword");

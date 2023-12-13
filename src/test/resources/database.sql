@@ -257,9 +257,6 @@ CREATE TABLE `roles` (
 -- Zrzut danych tabeli `roles`
 --
 
-INSERT INTO `roles` (`id`, `name`) VALUES
-(1, 'ROLE_USER'),
-(2, 'ROLE_ADMIN');
 
 -- --------------------------------------------------------
 
@@ -277,8 +274,6 @@ CREATE TABLE `users` (
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `password`, `username`) VALUES
-(1, '$2a$10$EYO9rV0a1Dnyi9sXpGCQD.pvebZwXdbE12AJnfeumk3qijXXKv.wK', 'admin');
 
 -- --------------------------------------------------------
 
@@ -294,9 +289,6 @@ CREATE TABLE `user_roles` (
 --
 -- Zrzut danych tabeli `user_roles`
 --
-
-INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
-(1, 2);
 
 --
 -- Indeksy dla zrzutów tabel
