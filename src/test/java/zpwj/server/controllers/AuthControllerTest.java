@@ -53,7 +53,7 @@ class AuthControllerTest {
 
     @Test
     public void testSignInEndpoint() throws Exception {
-        Role roleUser = new Role(ERole.ROLE_USER);
+        Role roleUser = new Role(null, ERole.ROLE_USER);
         roleUser.setName(ERole.ROLE_USER);
         roleRepository.save(roleUser);
 
@@ -82,7 +82,7 @@ class AuthControllerTest {
 
     @Test
     public void testSignUpEndpoint() throws Exception {
-        Role roleUser = new Role(ERole.ROLE_USER);
+        Role roleUser = new Role(null, ERole.ROLE_USER);
         roleUser.setName(ERole.ROLE_USER);
         roleRepository.save(roleUser);
 
