@@ -13,6 +13,10 @@ services:
             MARIADB_USER: user
             MARIADB_PASSWORD: password
             MARIADB_DATABASE: database
+        healthcheck:
+            test: mysqladmin ping -h 127.0.0.1 -u $$MARIADB_USER --password=$$MARIADB_PASSWORD
+            start_period: 5s
+            interval: 5s
 
     backend:
         build:
@@ -23,8 +27,8 @@ services:
             backend:
         depends_on:
             - db
-        restart:
-            on-failure
+#        restart:
+#            on-failure
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
