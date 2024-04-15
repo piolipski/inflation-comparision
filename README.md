@@ -1,5 +1,5 @@
 # Inflation comparision
-This project is a CRUD application designed to display the comparision of inflation rates income data in Poland (and potentially other countries, with data provided by the user). 
+This project is a CRUD application designed to display the comparision of inflation rates with income data in Poland (and potentially other countries, with data provided by the user). 
 
 # Technologies
 Technologies used in the development of the project:
